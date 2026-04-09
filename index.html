@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 08 - Técnicas e Dicas de Programação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #475569;
+        }
+
+        .card-header {
+            padding: 18px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card-header h2 {
+            font-size: 1.3rem;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-content p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: scale(1.02);
+        }
+
+        .mensagem {
+            background: #334155;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #fbbf24;
+        }
+
+        .mensagem h3 {
+            color: #fbbf24;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .mensagem p {
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .mensagem code {
+            background: #0f172a;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #fbbf24;
+        }
+
+        .mensagem ul {
+            margin-left: 25px;
+            margin-top: 10px;
+            color: #cbd5e1;
+        }
+
+        .mensagem li {
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        .footer h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .link {
+            background: #334155;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .link:hover {
+            background: #475569;
+            transform: scale(1.02);
+        }
+
+        .link-suporte {
+            background: #ef4444;
+        }
+
+        .link-suporte:hover {
+            background: #dc2626;
+        }
+
+        .link-envio {
+            background: #10b981;
+        }
+
+        .link-envio:hover {
+            background: #059669;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .card-header h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Tema 08 - Técnicas e Dicas de Programação</h1>
+            <p>Boas práticas, indentação, comentários e validação de dados</p>
+            <div class="badge">🎯 3 recursos disponíveis</div>
+        </div>
+
+        <div class="grid">
+            <!-- Card 1: Tema 8 -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📖 Tema 08 - Técnicas e Dicas de Programação</h2>
+                </div>
+                <div class="card-content">
+                    <p>Conceitos de identificadores, indentação, comentários, validação de dados, controle de versão e boas práticas de programação.</p>
+                    <a href="tema8.html" class="btn btn-primary" target="_blank">🎯 Abrir Tema 08 →</a>
+                </div>
+            </div>
+
+            <!-- Card 2: Material para Download -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📥 Material para Download</h2>
+                </div>
+                <div class="card-content">
+                    <p>Guia completo com explicações detalhadas sobre técnicas e dicas de programação.</p>
+                    <a href="tema8.pdf" class="btn btn-primary" target="_blank">📥 Baixar PDF</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Atividade -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>✏️ Atividade</h2>
+                </div>
+                <div class="card-content">
+                    <p>Exercícios para praticar os conceitos de boas práticas de programação.</p>
+                    <a href="Atividade.pdf" class="btn btn-primary" target="_blank">📥 Baixar Atividade</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensagem de Entrega -->
+        <div class="mensagem">
+            <h3>📦 INSTRUÇÕES PARA ENTREGA</h3>
+            <p>✅ Após finalizar a atividade, salvar o arquivo com extensão <code>.por</code> (Webportugol).</p>
+            <p>✅ Criar um repositório no GitHub com o nome: <code>desafio-portugol</code></p>
+            <p>✅ Enviar o arquivo da atividade para o repositório (pode ser em duplas).</p>
+            <p>✅ Após criar o repositório, enviar o link através do formulário abaixo.</p>
+            <ul>
+                <li>📄 <strong>Único arquivo:</strong> atividade.por (ou nome de sua escolha)</li>
+                <li>👥 <strong>Formato:</strong> Duplas (ou individual)</li>
+                <li>🔗 <strong>Repositório:</strong> desafio-portugol</li>
+            </ul>
+        </div>
+
+        <!-- Rodapé com Links -->
+        <div class="footer">
+            <h3>🔗 Links Úteis</h3>
+            <div class="links">
+                <a href="https://portugol.dev/" class="link" target="_blank">🌐 Webportugol Studio</a>
+                <a href="https://forms.gle/QvYjXnrAenbMSyTR8" class="link link-suporte" target="_blank">🆘 Solicitar Suporte</a>
+                <a href="https://forms.gle/T9QSe3PyEpru3t538" class="link link-envio" target="_blank">📤 Envio de Atividades</a>
+            </div>
+            <p style="color: #64748b; margin-top: 20px; font-size: 0.75rem;">
+                📚 Tema 08 - Técnicas e Dicas de Programação | Repositório: desafio-portugol
+            </p>
+        </div>
+    </div>
+</body>
+</html>

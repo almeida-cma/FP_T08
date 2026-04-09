@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 08 - Técnicas e Dicas de Programação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #94a3b8;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Cards */
+        .card {
+            background: #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #475569;
+        }
+
+        .card-header {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card-header h2 {
+            font-size: 1.2rem;
+        }
+
+        .card-header p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Código */
+        .codigo-container {
+            background: #0f172a;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .codigo-header {
+            background: #334155;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #94a3b8;
+        }
+
+        .codigo-pre {
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        .codigo-pre pre {
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .btn-copiar {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-copiar:hover {
+            background: #2563eb;
+        }
+
+        .btn-copiado {
+            background: #10b981;
+        }
+
+        /* Explicação */
+        .explicacao {
+            background: #334155;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+        .explicacao p {
+            color: #cbd5e1;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .explicacao code {
+            background: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #fbbf24;
+        }
+
+        .dica {
+            background: #0f172a;
+            border-left: 3px solid #fbbf24;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+        .dica p {
+            color: #fbbf24;
+            font-size: 0.75rem;
+        }
+
+        /* Rodapé */
+        .footer {
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        .footer p {
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        .footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Tema 08 - Técnicas e Dicas de Programação</h1>
+            <p>Boas práticas para códigos mais limpos, organizados e profissionais</p>
+            <div class="badge">🎯 6 exemplos práticos | Clique para copiar</div>
+        </div>
+
+        <div class="grid">
+            <!-- Exemplo 1: Identificadores Válidos vs Inválidos -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📌 1. Identificadores (Nomes de Variáveis)</h2>
+                    <p>Regras para nomear variáveis corretamente</p>
+                </div>
+                <div class="card-body">
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>✅ Exemplo CORRETO</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo1')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo1">programa
+{
+    funcao inicio()
+    {
+        // ✅ Identificadores VÁLIDOS
+        cadeia nome_Cliente = "João"
+        inteiro data_Emissao = 2024
+        real valor_1_a_100 = 75.5
+        
+        escreva("Nome: ", nome_Cliente, "\n")
+        escreva("Data: ", data_Emissao, "\n")
+        escreva("Valor: ", valor_1_a_100, "\n")
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>❌ Exemplo INCORRETO</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo1b')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo1b">programa
+{
+    funcao inicio()
+    {
+        // ❌ Identificadores INVÁLIDOS (NÃO funcionam!)
+        // cadeia nome do cliente = "João"   // tem espaço!
+        // inteiro data_Emissão = 2024       // tem acento!
+        // cadeia MensagemAviso!!! = "ok"    // tem caracteres especiais!
+        // inteiro 2aSemana = 5              // começa com número!
+        
+        escreva("Use apenas letras, números e _\n")
+        escreva("Não use espaços, acentos ou caracteres especiais\n")
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <div class="explicacao">
+                        <p>📖 <strong>Regras para identificadores:</strong> Começar com letra, usar apenas letras/números/underscore (_), sem espaços, sem acentos, sem caracteres especiais.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemplo 2: Indentação de Código -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📌 2. Indentação de Código</h2>
+                    <p>Organizando o código com recuos</p>
+                </div>
+                <div class="card-body">
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>✅ Com Indentação (Código Legível)</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo2')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo2">programa
+{
+    funcao inicio()
+    {
+        inteiro i = 0
+        
+        para (i = 1; i <= 5; i++)
+        {
+            se (i % 2 == 0)
+            {
+                escreva(i, " é par\n")
+            }
+            senao
+            {
+                escreva(i, " é ímpar\n")
+            }
+        }
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>❌ Sem Indentação (Código Confuso)</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo2b')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo2b">programa
+{
+funcao inicio()
+{
+inteiro i = 0
+para (i = 1; i <= 5; i++)
+{
+se (i % 2 == 0)
+{
+escreva(i, " é par\n")
+}
+senao
+{
+escreva(i, " é ímpar\n")
+}
+}
+}
+}</pre>
+                        </div>
+                    </div>
+                    <div class="explicacao">
+                        <p>📖 <strong>Indentação:</strong> Recuar linhas de código para mostrar hierarquia e facilitar a leitura. Código indentado é mais fácil de entender e dar manutenção.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemplo 3: Comentários -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📌 3. Comentários no Código</h2>
+                    <p>Documentando o programa</p>
+                </div>
+                <div class="card-body">
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>✅ Código com Comentários</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo3')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo3">programa
+{
+    // ==========================================
+    // PROGRAMA: Calculadora de Média
+    // AUTOR: Aluno
+    // DATA: 09/04/2026
+    // ==========================================
+    
+    funcao inicio()
+    {
+        real nota1, nota2, media  // Declara variáveis
+        
+        // Entrada de dados
+        escreva("Digite a primeira nota: ")
+        leia(nota1)
+        
+        escreva("Digite a segunda nota: ")
+        leia(nota2)
+        
+        // Processamento
+        media = (nota1 + nota2) / 2
+        
+        // Saída do resultado
+        escreva("Média: ", media, "\n")
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <div class="explicacao">
+                        <p>📖 <strong>Comentários:</strong> Explicam o que o código faz. Ajudam outros programadores (e você mesmo no futuro) a entender o programa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemplo 4: Diminuir Linhas de Código -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📌 4. Diminuindo Linhas de Código</h2>
+                    <p>"Menos é mais" - Código conciso e eficiente</p>
+                </div>
+                <div class="card-body">
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>❌ Código MUITO extenso</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo4')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo4">programa
+{
+    funcao inicio()
+    {
+        inteiro a, b
+        
+        escreva("Digite A: ")
+        leia(a)
+        
+        escreva("Digite B: ")
+        leia(b)
+        
+        escreva("Soma: ", a + b, "\n")
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>✅ Código MAIS CONCISO</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo4b')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo4b">programa
+{
+    funcao inicio()
+    {
+        inteiro a, b
+        
+        escreva("Digite A e B: ")
+        leia(a, b)  // Leitura múltipla em uma linha!
+        
+        escreva("Soma: ", a + b, "\n")
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <div class="explicacao">
+                        <p>📖 <strong>Diminuir linhas:</strong> Código mais limpo e direto. Use <code>leia(a, b)</code> para ler múltiplas variáveis. Menos linhas = menos chance de erro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemplo 5: Consistência de Dados (Validação) -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📌 5. Validação de Dados</h2>
+                    <p>Protegendo o programa contra entradas inválidas</p>
+                </div>
+                <div class="card-body">
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>✅ Com Validação de Dados</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo5')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo5">programa
+{
+    funcao inicio()
+    {
+        inteiro idade
+        
+        faca
+        {
+            escreva("Digite sua idade (1 a 120): ")
+            leia(idade)
+            
+            se (idade < 1 ou idade > 120)
+            {
+                escreva("❌ Idade inválida! Tente novamente.\n")
+            }
+        } enquanto (idade < 1 ou idade > 120)
+        
+        escreva("✅ Idade válida: ", idade, " anos\n")
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <div class="dica">
+                        <p>💡 <strong>Dica:</strong> Sempre valide entradas do usuário! Verifique se o valor está dentro do esperado, se não está vazio, se é do tipo correto.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemplo 6: Programa Completo com Boas Práticas -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📌 6. Programa Completo com TODAS as Boas Práticas</h2>
+                    <p>Unindo indentação, comentários, validação e código limpo</p>
+                </div>
+                <div class="card-body">
+                    <div class="codigo-container">
+                        <div class="codigo-header">
+                            <span>🏆 Programa Exemplar</span>
+                            <button class="btn-copiar" onclick="copiarCodigo(this, 'codigo6')">📋 Copiar</button>
+                        </div>
+                        <div class="codigo-pre">
+                            <pre id="codigo6">programa
+{
+    // ==========================================
+    // PROGRAMA: Sistema de Validação de Idade
+    // OBJETIVO: Ler idade do usuário com validação
+    // ==========================================
+    
+    funcao inicio()
+    {
+        inteiro idade_usuario
+        
+        escreva("================================\n")
+        escreva("   SISTEMA DE VALIDAÇÃO\n")
+        escreva("================================\n\n")
+        
+        // Validação da idade
+        faca
+        {
+            escreva("Digite sua idade (1 a 120): ")
+            leia(idade_usuario)
+            
+            se (idade_usuario < 1 ou idade_usuario > 120)
+            {
+                escreva("❌ Idade inválida! Digite entre 1 e 120.\n\n")
+            }
+        } enquanto (idade_usuario < 1 ou idade_usuario > 120)
+        
+        // Exibe resultado
+        escreva("\n✅ Idade registrada: ", idade_usuario, " anos\n")
+        
+        // Verifica maioridade
+        se (idade_usuario >= 18)
+        {
+            escreva("🔞 Usuário é MAIOR de idade\n")
+        }
+        senao
+        {
+            escreva("🧒 Usuário é MENOR de idade\n")
+        }
+    }
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="footer">
+            <p>📚 <strong>Tema 08 - Técnicas e Dicas de Programação</strong></p>
+            <p>Boas práticas essenciais: Identificadores corretos | Indentação | Comentários | Código conciso | Validação de dados</p>
+            <p style="margin-top: 10px;">🌐 Teste os códigos no <a href="https://portugol.dev/" target="_blank">Webportugol Studio</a></p>
+        </div>
+    </div>
+
+    <script>
+        function copiarCodigo(botao, elementoId) {
+            const codigoElement = document.getElementById(elementoId);
+            const codigo = codigoElement.innerText;
+            
+            navigator.clipboard.writeText(codigo).then(function() {
+                const textoOriginal = botao.innerText;
+                botao.innerText = '✅ Copiado!';
+                botao.classList.add('btn-copiado');
+                
+                setTimeout(function() {
+                    botao.innerText = textoOriginal;
+                    botao.classList.remove('btn-copiado');
+                }, 2000);
+            }).catch(function() {
+                alert('Erro ao copiar. Selecione manualmente.');
+            });
+        }
+    </script>
+</body>
+</html>
